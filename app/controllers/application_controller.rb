@@ -16,6 +16,20 @@ class ApplicationController < Sinatra::Base
   zookeepers.to_json
   end
 
+  delete "/zookeepers/:id" do
+      zookeeper=Zookeeper.find(params[:id])
+      zookeeper.destroy
+      zookeeper.to_json()
+  end
+
+  patch "/zookeepers/:id" do
+    zookeeper = Zookeeper.find(params[:id])
+    zookeeper.update(name: params[:name], image: params[:image])
+    zookeeper.to_json()
+  end
+
+
+
   post "/animal_logs" do 
     animal_log = AnimalLog.create(animal_log_params)
     animal_log.to_json(methods: [:updated_at])
@@ -65,5 +79,7 @@ class ApplicationController < Sinatra::Base
     allowed_params = %w(animal_id log_time pooped fed updated_at id note)
     params.select {|param,value| allowed_params.include?(param)}
   end
+
+
 
 end

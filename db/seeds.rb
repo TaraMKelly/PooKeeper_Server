@@ -15,7 +15,7 @@ Zookeeper.create(name: "Luke Otwell", image: 'https://creazilla-store.fra1.digit
 Zookeeper.create(name: "Olivia Manam", image: 'https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/64143/angry-potato-clipart-md.png')
 Zookeeper.create(name: "Christopher Simpson", image: 'https://i.redd.it/tptkkgb4rlr41.jpg')
 
-Animal.create(name: "Adam", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/440px-Lion_waiting_in_Namibia.jpg', sex: "M", birthdate: 'May 2, 1980', sex: "M", species: "Lion")
+Animal.create(name: "Adam", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/440px-Lion_waiting_in_Namibia.jpg', sex: "M", birthdate: 'May 2, 1980', species: "Lion")
 Animal.create(name: "Toni", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Walking_tiger_female.jpg/440px-Walking_tiger_female.jpg', birthdate: 'March 14, 1993', sex: "F", species: "Tiger")
 Animal.create(name: "Antonio", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/440px-Giraffe_Mikumi_National_Park.jpg', birthdate: 'September 13, 1986', sex: "M", species: "Giraffe")
 Animal.create(name: "Dakota", image:'https://i.natgeofe.com/n/a4e20a18-8ae7-4f9a-be59-d7038dbd8d82/4463961.jpg', birthdate: 'February 2, 1987',sex: "M", species: "Peacock")
@@ -29,10 +29,10 @@ Animal.create(name: "Didi", image:'https://images.costco-static.com/ImageDeliver
 25.times do
 
     note = Faker::Quote.matz
-    zookeeper_id = rand(1..4) 
+    zookeeper_id = rand(1..6) 
     pooped = [true,false].sample
     fed = [true, false].sample
-    animal_id = rand(1..4)
+    animal_id = rand(1..6)
 
     AnimalLog.create( note: note  , animal_id: animal_id, zookeeper_id: zookeeper_id , pooped: pooped , fed: fed)
 
