@@ -6,6 +6,16 @@ class ApplicationController < Sinatra::Base
     animals.to_json(methods: [:age])
   end
 
+  get "/animals/a-z" do
+    animals = Animal.alphabetical
+    animals.to_json(methods: [:age])
+  end
+
+  get "/animals/age" do
+    animals = Animal.oldest
+    animals.to_json(methods: [:age])
+  end
+
   get "/animals/:id" do 
     animal = Animal.find(params[:id])
     ordered_logs = animal.animal_logs.order(:created_at)
